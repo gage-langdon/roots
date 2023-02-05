@@ -1,12 +1,12 @@
 import React from 'react';
-import { Vertical } from '../components/atoms';
+import { Vertical, Box } from '../components/atoms';
 import { type Card as CardType } from '../types/Card';
 import Card from '../components/Card';
 import useCard from '../context/hooks/useCard';
 import { isCardCompatible } from '../utils/card-utils';
 
 const IndexPage = () => {
-  //   const { generateCard } = useCard();
+  const { generateCard } = useCard();
   const [cardA, setCardA] = React.useState<CardType>({
     id: '1',
     nodes: [
@@ -22,10 +22,14 @@ const IndexPage = () => {
     ],
   });
 
-  //   React.useEffect(() => {
-  //     setCardA(generateCard());
-  //     setCardB(generateCard());
-  //   }, [generateCard]);
+  const generate = React.useCallback(() => {
+    setCardA(generateCard());
+    setCardB(generateCard());
+  }, [generateCard]);
+
+  React.useEffect(() => {
+    generate();
+  }, []);
 
   const areCardsCompatible = isCardCompatible({
     existingCard: cardA,
@@ -37,10 +41,13 @@ const IndexPage = () => {
   });
 
   return (
-    <Vertical alignItems="center" mt="25%">
+    <Vertical alignItems="center" mt="5%">
       {cardA && <Card {...cardA} />}
       {cardB && <Card {...cardB} />}
       <div>{areCardsCompatible ? 'compatible' : 'not compatible'}</div>
+      <Box mt={24}>
+        <button onClick={generate}>Re-generate</button>
+      </Box>
     </Vertical>
   );
 };

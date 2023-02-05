@@ -1,7 +1,6 @@
 import React from 'react';
 import { Vertical, Horizontal } from '../components/atoms';
 import { type CardNode } from '../types/Card';
-import { doesNodeMatch } from '../utils/card-utils';
 
 type Props = {
   nodes: Array<CardNode>;

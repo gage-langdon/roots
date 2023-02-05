@@ -1,8 +1,4 @@
-import { type Card, type CardNode } from '../types/Card';
-
-export const doesNodeMatch = (nodeA: CardNode, nodeB: CardNode) => {
-  return nodeA.side === nodeB.side && nodeA.section === nodeB.section;
-};
+import { type Card } from '../types/Card';
 
 // check to see if a selected card can be placed next to an existing card
 export const isCardCompatible = ({
@@ -28,6 +24,7 @@ export const isCardCompatible = ({
     [Key in string]: { [Key in string]: string };
   } = {
     top: {
+      // direction of new card being placed in relation to the existing card
       '0a': '2a',
       '0b': '2b',
       '0c': '2c',
@@ -67,4 +64,15 @@ export const isCardCompatible = ({
     return Boolean(nodeFoundOnNewCard);
   });
   return foundCompatibleNode;
+};
+
+export const generateRandomNode = () => {
+  const sides = [0, 1, 2, 3];
+  const sections = ['a', 'b', 'c'];
+  const side = sides[Math.floor(Math.random() * sides.length)];
+  const section = sections[Math.floor(Math.random() * sections.length)];
+  return {
+    side,
+    section,
+  };
 };
