@@ -42,8 +42,8 @@ const IndexPage = () => {
 
   return (
     <Vertical alignItems="center" mt="5%">
-      {cardA && <Card {...cardA} />}
-      {cardB && <Card {...cardB} />}
+      {cardA && <Card card={cardA} />}
+      {cardB && <Card card={cardB} />}
       <div>{areCardsCompatible ? 'compatible' : 'not compatible'}</div>
       <Box mt={24}>
         <button onClick={generate}>Re-generate</button>

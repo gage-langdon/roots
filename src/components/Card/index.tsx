@@ -7,7 +7,12 @@ import ArtRender from './ArtRender';
 
 const DEV_MODE = true;
 
-const Card = (card: CardType) => {
+type Props = {
+  card: CardType;
+  onClick?: () => void;
+};
+
+const Card = ({ card, onClick }: Props) => {
   return (
     <Box
       border="1px solid rgba(0,0,0,0.5)"
@@ -15,6 +20,7 @@ const Card = (card: CardType) => {
       overflow="hidden"
       width={gridCellWidth}
       height={gridCellHeight}
+      onClick={onClick}
     >
       <Box
         position="relative"
