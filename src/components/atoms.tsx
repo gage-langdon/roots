@@ -29,6 +29,7 @@ interface Props
     GridProps {
   gap?: number | string;
   transform?: string;
+  css?: string;
 }
 
 const customProps = css<Props>`
@@ -46,6 +47,7 @@ export const Box = styled.div<Props>`
   ${borders};
   ${typography};
   ${grid}
+  ${({ css }) => css}
 
   ${customProps};
 `;
