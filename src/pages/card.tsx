@@ -13,7 +13,11 @@ const IndexPage = () => {
     setCard(newCard);
   }, [generateCard]);
 
-  return <Vertical>{card && <Card {...card} />}</Vertical>;
+  return (
+    <Vertical alignItems="center" mt="25%">
+      {card && <Card {...card} />}
+    </Vertical>
+  );
 };
 
 export default IndexPage;
