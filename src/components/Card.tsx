@@ -1,11 +1,11 @@
 import React from 'react';
 import { type Card as CardType } from '../types/Card';
-import { Vertical, Box } from '../components/atoms';
+import { Box } from '../components/atoms';
 import { gridCellWidth, gridCellHeight } from '../constants';
 import CardDevOverlay from './CardDevOverlay';
 
 const DEV_MODE = true;
-const Card = ({}: CardType) => {
+const Card = ({ nodes }: CardType) => {
   return (
     <Box
       border="1px solid black"
@@ -18,8 +18,9 @@ const Card = ({}: CardType) => {
         backgroundColor="rgba(0,0,0,0.1)"
         height="100%"
         width="100%"
+        fontSize={12}
       >
-        {DEV_MODE && <CardDevOverlay />}
+        {DEV_MODE && <CardDevOverlay nodes={nodes} />}
       </Box>
     </Box>
   );

@@ -1,2 +1,2 @@
-export const gridCellWidth = 200;
-export const gridCellHeight = 200;
+export const gridCellWidth = 120;
+export const gridCellHeight = 120;
