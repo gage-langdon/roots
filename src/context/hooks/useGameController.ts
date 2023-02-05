@@ -19,7 +19,7 @@ const useGameController = () => {
 
 
   console.log({ playingField })
-  console.log({ playersHand })
+  // console.log({ playersHand })
 
   React.useEffect(
     () => {
@@ -40,7 +40,7 @@ const useGameController = () => {
       };
       onCardPlace(newPos);
     },
-    [playingField]
+    [playingField, cardSelectedIndex]
   );
 
   const startGame = () => {
@@ -56,10 +56,12 @@ const useGameController = () => {
   }
 
   const onCardSelect = (index: number) => {
+    console.log(`onCardSelect: ${index}` )
     setCardSelected(index)
   }
 
   const onCardPlace = (coordinate: Coord) => {
+    console.log(`onCardPlace: ${coordinate.x}, ${coordinate.y}` )
     let newPlayingField = playingField;
     newPlayingField[coordinate.x][coordinate.y] = cardSelectedIndex !== undefined ? playersHand[cardSelectedIndex] : null;
     setPlayingField(newPlayingField)

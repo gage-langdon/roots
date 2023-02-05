@@ -1,5 +1,5 @@
-export const gridCellWidth = 120;
-export const gridCellHeight = 120;
+export const gridCellWidth = 100;
+export const gridCellHeight = 100;
 
 
 export const playingFieldSize = {

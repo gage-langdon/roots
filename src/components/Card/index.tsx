@@ -1,9 +1,9 @@
-import React from 'react';
-import { type Card as CardType } from '../../types/Card';
-import { Box } from '../atoms';
-import { gridCellWidth, gridCellHeight } from '../../constants';
-import CardDevOverlay from '../CardDevOverlay';
-import ArtRender from './ArtRender';
+import React from "react";
+import { type Card as CardType } from "../../types/Card";
+import { Box } from "../atoms";
+import { gridCellWidth, gridCellHeight } from "../../constants";
+import CardDevOverlay from "../CardDevOverlay";
+import ArtRender from "./ArtRender";
 
 const DEV_MODE = true;
 
