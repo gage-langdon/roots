@@ -14,6 +14,8 @@ import {
   BordersProps,
   typography,
   TypographyProps,
+  grid,
+  GridProps,
 } from 'styled-system';
 
 interface Props
@@ -23,7 +25,8 @@ interface Props
     FlexboxProps,
     PositionProps,
     BordersProps,
-    TypographyProps {
+    TypographyProps,
+    GridProps {
   gap?: number | string;
   transform?: string;
 }
@@ -42,6 +45,7 @@ export const Box = styled.div<Props>`
   ${position};
   ${borders};
   ${typography};
+  ${grid}
 
   ${customProps};
 `;
@@ -58,6 +62,7 @@ export const Horizontal = styled.div<Props>`
   ${position};
   ${borders};
   ${typography};
+  ${grid}
 
   ${customProps};
 `;
@@ -74,6 +79,7 @@ export const Vertical = styled.div<Props>`
   ${position};
   ${borders};
   ${typography};
+  ${grid}
 
   ${customProps};
 `;
@@ -90,6 +96,7 @@ export const FullPageCenter = styled.div<Props>`
   ${position};
   ${borders};
   ${typography};
+  ${grid}
 
   ${customProps};
 `;
