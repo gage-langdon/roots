@@ -26,51 +26,33 @@ const useGameController = () => {
       startGame()
       // do something
     },
-    [
-
-      /* any change to a var you put in this array will rerun this function */
-    ]
+    []
   );
 
   React.useEffect(
-    () => {  ///// test
-
+    () => {
+      ///// test
       if (!playingField.length) return
 
       const newPos: Coord = {
         x: 3,
         y: 7
       };
-      console.log('hit useeffect', playingField)
-      onCardPlace(newPos)
-      ///// test
-
-      // do something
+      onCardPlace(newPos);
     },
-    [
-      playingField
-      /* any change to a var you put in this array will rerun this function */
-    ]
+    [playingField]
   );
 
-
-
-
   const startGame = () => {
-    // start timer
-    // generate playfield
-    //  const emptyPlayingField = new Array(playingFieldSize.height).fill(new Array(playingFieldSize.width).fill(null));
-
     let emptyPlayingField = [];
     for (let i = 0; i < playingFieldSize.height; i++) {
-      console.log('test', i, ' ', emptyPlayingField)
       emptyPlayingField[i] = new Array(playingFieldSize.width).fill(null);
     }
-   
-
 
     setPlayingField(emptyPlayingField)
-    setPlayersHand( new Array(handSize).fill(generateCard()))
+    setPlayersHand(new Array(handSize).fill(null).map(() => generateCard()))
+
+    // start timer
   }
 
   const onCardSelect = (index: number) => {
@@ -78,25 +60,10 @@ const useGameController = () => {
   }
 
   const onCardPlace = (coordinate: Coord) => {
-    // place cardSelectedId from players hand and place in coord location of playing field
     let newPlayingField = playingField;
-
-
-
-
-
-
-
     newPlayingField[coordinate.x][coordinate.y] = cardSelectedIndex !== undefined ? playersHand[cardSelectedIndex] : null;
-
     setPlayingField(newPlayingField)
-    onCardSelect(2)
-
-
   }
-
-
-
 
 
   return {
