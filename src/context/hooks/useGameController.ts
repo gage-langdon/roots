@@ -14,7 +14,7 @@ const useGameController = () => {
   const [timeLeft, setTimeLeft] = useState<string>();
   const [gameActive, setGameActive] = useState<boolean>();
   const [gameStarted, setGameStarted] = useState<string>();
-  const [cardSelectedIndex, setCardSelected] = useState<number>();
+  const [cardSelectedIndex, setCardSelected] = useState<number>(3);
   const { generateCard } = useCard();
 
 
@@ -27,20 +27,6 @@ const useGameController = () => {
       // do something
     },
     []
-  );
-
-  React.useEffect(
-    () => {
-      ///// test
-      if (!playingField.length) return
-
-      const newPos: Coord = {
-        x: 3,
-        y: 7
-      };
-      onCardPlace(newPos);
-    },
-    [playingField, cardSelectedIndex]
   );
 
   const startGame = () => {
@@ -56,12 +42,12 @@ const useGameController = () => {
   }
 
   const onCardSelect = (index: number) => {
-    console.log(`onCardSelect: ${index}` )
+    console.log(`onCardSelect(index: ${index})` )
     setCardSelected(index)
   }
 
   const onCardPlace = (coordinate: Coord) => {
-    console.log(`onCardPlace: ${coordinate.x}, ${coordinate.y}` )
+    console.log(`onCardPlace(${coordinate.x}, ${coordinate.y}). The current selected card index is ${cardSelectedIndex}` )
     let newPlayingField = playingField;
     newPlayingField[coordinate.x][coordinate.y] = cardSelectedIndex !== undefined ? playersHand[cardSelectedIndex] : null;
     setPlayingField(newPlayingField)

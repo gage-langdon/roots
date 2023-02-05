@@ -4,34 +4,12 @@ import useGameController from "../../context/hooks/useGameController";
 // componets
 import Card from "../Card";
 import { Box } from "../atoms";
+import EmptyCard from "./components/EmptyCard";
 // utils
-import { gridCellWidth, gridCellHeight } from "../../constants";
-import { numbersToCoord } from "../../types/Coord";
 import { type Card as CardType } from "../../types/Card";
 
 const PlayingField = () => {
-  const { playingField, onCardPlace } = useGameController();
-
-  const EmptyCard = ({ x, y }: { x: number; y: number }) => {
-    return (
-      <Box
-        border="1px solid rgba(0,0,0,0.5)"
-        backgroundColor={"tan"}
-        //
-        height={gridCellHeight}
-        width={gridCellWidth}
-        //
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        //
-
-        onClick={() => onCardPlace(numbersToCoord(x, y))}
-      >
-        {`${x},${y}`}
-      </Box>
-    );
-  };
+  const { playingField } = useGameController();
 
   return (
     <Box display={"grid"}>

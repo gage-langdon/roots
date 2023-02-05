@@ -8,3 +8,10 @@ export const playingFieldSize = {
 }
 
 export const handSize = 5
+
+export const showDebug = {
+    playingField: {
+        showCoord: true,
+        showOutline: true
+    }
+}
