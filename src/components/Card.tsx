@@ -8,8 +8,9 @@ const DEV_MODE = true;
 const Card = ({ nodes }: CardType) => {
   return (
     <Box
-      border="1px solid black"
+      border="1px solid rgba(0,0,0,0.5)"
       borderRadius={7}
+      overflow="hidden"
       width={gridCellWidth}
       height={gridCellHeight}
     >
