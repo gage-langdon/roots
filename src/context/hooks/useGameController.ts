@@ -1,5 +1,6 @@
 import React from 'react';
 import { type Card } from '../../types/Card';
+import useCard from './useCard';
 
 export type GameControllerContextType = {
   playersHand: Card[];
@@ -7,6 +8,7 @@ export type GameControllerContextType = {
 
 const useGameController = () => {
   const [playersHand, setPlayersHand] = React.useState<Array<Card>>([]);
+  const { generateCard } = useCard();
 
   React.useEffect(
     () => {
